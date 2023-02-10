@@ -1,0 +1,7 @@
+The three PHP scripts provided implement different parts of the Shopify app installation and authentication process.
+
+The install.php script is used to initiate the installation process of your Shopify app. This script receives the shop parameter from the query string, which specifies the name of the Shopify store that the app is being installed in. The script then uses this information to build the installation URL and redirects the user to the Shopify OAuth authorization page.
+
+The finalize_installation.php script is used to finalize the app installation process and receive an access token from Shopify. This script is called by Shopify after the user approves the app installation. The script verifies the authenticity of the request using the HMAC signature provided in the request parameters, and if the request is valid, it makes a request to the Shopify OAuth access token endpoint to receive the access token.
+
+Finally, the index.php script serves as the main entry point of your app and is used to perform various Shopify API requests. To make these requests, you will need to have saved the access token and store name from the app installation process. This script sets up the Shopify PHP library context, which includes the API key, secret key, scopes, and version information. The script also provides a place for you to specify the path for the session storage, which is used to store the access token. You would need to modify this script to perform the specific requests you need for your app.
